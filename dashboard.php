@@ -19,11 +19,16 @@
 
     $author_id  = $_SESSION['id'];
     $posts      = $Post->get($author_id);
+
     ?>
 </head>
 
 <body>
-    <a href="dashboard.php?logout=true">Logot 8==D</a>
+
+    <a href="dashboard.php?logout=true">
+        Logot
+    </a>
+
     <?php
 
     if (isset($_GET['success'])) echo "<h1>Welcome! berhasil login kyaaaa</h1>";
@@ -55,8 +60,9 @@
     <br><br>
 
     <ul>
-        <?php foreach ($posts as $post) : ?>
+        <?php foreach ($posts as $key => $post) : ?>
             <li>
+                <small><?= $key + 1 ?></small>
                 <div>
                     <h4><?= $post['judul'] ?></h4>
                     <p>
