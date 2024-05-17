@@ -10,6 +10,14 @@
 <body>
     <h1>Login page</h1>
     <?php
+
+    session_start();
+
+    if (isset($_SESSION['id'])) {
+        header('Location: dashboard.php');
+        die();
+    }
+
     if (isset($_GET['success'])) {
         echo '<h1>Register sukses bro</h1>';
     }
@@ -21,6 +29,7 @@
         if (!$result) echo "<script>alert('gagal login bossq');</script>";
         else header('Location: dashboard.php?success=1');
     }
+
     ?>
 
     <form action="index.php" method="POST">
@@ -37,7 +46,7 @@
 </html>
 <!-- Twitter Clone -->
 <!-- 
-1. Buat twit -> post caption
+1. Buat twit -> post caption (done)
 2. Login        (done)
 3. Register     (done)
  -->

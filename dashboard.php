@@ -17,13 +17,15 @@
 
     if (isset($_GET['logout'])) $User->logout();
 
-    $author_id = $_SESSION['id'];
-    $posts = $Post->get($author_id);
+    $author_id  = $_SESSION['id'];
+    $posts      = $Post->get($author_id);
     ?>
 </head>
 
 <body>
+    <a href="dashboard.php?logout=true">Logot 8==D</a>
     <?php
+
     if (isset($_GET['success'])) echo "<h1>Welcome! berhasil login kyaaaa</h1>";
 
     if (isset($_POST['postBtn'])) {
@@ -35,6 +37,7 @@
         $result = $Post->delete($_POST['post_id']);
         header('Location: dashboard.php');
     }
+
     ?>
     <h3>Kamu login dengan username :
         <?= $_SESSION['username'] ?>
